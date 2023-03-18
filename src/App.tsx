@@ -46,7 +46,7 @@ export default function App() {
         <div className="Article">
           <h2>{article.title}</h2>
           <h3>Links here: {article.linkshere.length}</h3>
-          <p>{article.extracts}</p>
+          <p>{article.extract}</p>
           <a href={article.fullurl} target="_blank" rel="noreferrer">
             Read on Wikipedia
           </a>
