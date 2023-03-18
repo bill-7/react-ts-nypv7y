@@ -4,7 +4,7 @@ import "./App.css";
 
 interface Article {
   title: string;
-  links: string[];
+  linkshere: string[];
   fullurl: string;
 }
 
@@ -19,12 +19,12 @@ export default function App() {
     const pageId = data.query.random[0].id;
 
     const articleResponse = await fetch(
-      `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info|links&inprop=url&pageids=${pageId}&pllimit=500&origin=*`
+      `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info|linkshere&inprop=url&pageids=${pageId}&pllimit=500&origin=*`
     );
     const articleData = await articleResponse.json();
     const fetchedArticle = articleData.query.pages[pageId] as Article;
 
-    if (fetchedArticle.links && fetchedArticle.links.length >= 10) {
+    if (fetchedArticle.linkshere && fetchedArticle.linkshere.length >= 10) {
       setArticle(fetchedArticle);
     } else {
       fetchRandomArticle();
@@ -44,7 +44,7 @@ export default function App() {
       {article && (
         <div className="Article">
           <h2>{article.title}</h2>
-          <h3>Links: {article.links.length}</h3>
+          <h3>Links here: {article.linkshere.length}</h3>
           <a href={article.fullurl} target="_blank" rel="noreferrer">
             Read on Wikipedia
           </a>
