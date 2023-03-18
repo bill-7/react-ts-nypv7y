@@ -11,6 +11,7 @@
 }
 
 .App-header {
+  max-width: fit-content;
   background-color: #282c34;
   padding: 2rem;
   color: white;
