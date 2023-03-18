@@ -2,8 +2,14 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
 
+interface Article {
+  title: string;
+  links: string[];
+  fullurl: string;
+}
+
 export default function App() {
-  const [article, setArticle] = useState(null);
+  const [article, setArticle] = useState<Article>(null);
 
   const fetchRandomArticle = async () => {
     const response = await fetch(
@@ -16,7 +22,7 @@ export default function App() {
       `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info|links&inprop=url&pageids=${pageId}&pllimit=500&origin=*`
     );
     const articleData = await articleResponse.json();
-    const fetchedArticle = articleData.query.pages[pageId];
+    const fetchedArticle = articleData.query.pages[pageId] as Article;
 
     if (fetchedArticle.links && fetchedArticle.links.length >= 10) {
       setArticle(fetchedArticle);
