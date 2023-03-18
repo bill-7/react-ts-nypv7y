@@ -20,7 +20,7 @@ export default function App() {
     const pageId = data.query.random[0].id;
 
     const articleResponse = await fetch(
-      `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info|linkshere|extracts&inprop=url&pageids=${pageId}&pllimit=500&origin=*`
+      `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info|linkshere|extracts&inprop=url&exintro&explaintext&pageids=${pageId}&pllimit=500&origin=*`
     );
     const articleData = await articleResponse.json();
     const fetchedArticle = articleData.query.pages[pageId] as Article;
