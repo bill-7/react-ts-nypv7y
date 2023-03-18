@@ -9,7 +9,7 @@ interface Article {
 }
 
 export default function App() {
-  const [article, setArticle] = useState<Article>(null);
+  const [article, setArticle] = useState<Article>();
 
   const fetchRandomArticle = async () => {
     const response = await fetch(
