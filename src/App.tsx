@@ -6,6 +6,7 @@ interface Article {
   title: string;
   linkshere: string[];
   fullurl: string;
+  extract: string;
 }
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
     const pageId = data.query.random[0].id;
 
     const articleResponse = await fetch(
-      `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info|linkshere&inprop=url&pageids=${pageId}&pllimit=500&origin=*`
+      `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info|linkshere|extracts&inprop=url&pageids=${pageId}&pllimit=500&origin=*`
     );
     const articleData = await articleResponse.json();
     const fetchedArticle = articleData.query.pages[pageId] as Article;
@@ -45,6 +46,7 @@ export default function App() {
         <div className="Article">
           <h2>{article.title}</h2>
           <h3>Links here: {article.linkshere.length}</h3>
+          <p>{article.extracts}</p>
           <a href={article.fullurl} target="_blank" rel="noreferrer">
             Read on Wikipedia
           </a>
