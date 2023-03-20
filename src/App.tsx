@@ -55,7 +55,7 @@ export default function App() {
       <header className="App-header">
         <h1>Random Wikipedia Article</h1>
         <div>
-          <label htmlFor="minLinks">Max links here</label>
+          <label htmlFor="minLinks">Min links here</label>
           <input
             type="number"
             id="minLinks"
@@ -67,7 +67,7 @@ export default function App() {
           />
         </div>
         <div>
-          <label htmlFor="maxLinks">Min links here</label>
+          <label htmlFor="maxLinks">Max links here</label>
           <input
             type="number"
             id="maxLinks"
