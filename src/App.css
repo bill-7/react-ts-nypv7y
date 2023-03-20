@@ -54,3 +54,18 @@ button:hover {
 .Article a:hover {
   text-decoration: underline;
 }
+
+/* Add styles for number inputs */
+input[type="number"] {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  width: 3rem;
+  font-size: 1rem;
+}
+
+label {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}

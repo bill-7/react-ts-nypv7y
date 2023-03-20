@@ -60,7 +60,7 @@ export default function App() {
             type="number"
             id="minLinks"
             name="minLinks"
-            min="10"
+            min="1"
             max="500"
             value={minLinks}
             onChange={handleMinLinksChange}
@@ -72,7 +72,7 @@ export default function App() {
             type="number"
             id="maxLinks"
             name="maxLinks"
-            min="10"
+            min="1"
             max="500"
             value={maxLinks}
             onChange={handleMaxLinksChange}
