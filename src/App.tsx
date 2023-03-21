@@ -39,6 +39,7 @@ export default function App() {
       validLinksHere.length <= maxLinks
     ) {
       fetchedArticle.linkshere = validLinksHere;
+      console.log(fetchedArticle);
       setArticle(fetchedArticle);
     } else {
       fetchRandomArticle();
