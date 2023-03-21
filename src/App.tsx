@@ -38,6 +38,7 @@ export default function App() {
       validLinksHere.length >= minLinks &&
       validLinksHere.length <= maxLinks
     ) {
+      fetchedArticle.linkshere = validLinksHere;
       setArticle(fetchedArticle);
     } else {
       fetchRandomArticle();
