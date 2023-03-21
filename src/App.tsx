@@ -4,9 +4,13 @@ import "./App.css";
 
 interface Article {
   title: string;
-  linkshere: string[];
+  linkshere: LinksHere[];
   fullurl: string;
   extract: string;
+}
+
+interface LinksHere {
+  ns: number;
 }
 
 export default function App() {
@@ -27,10 +31,12 @@ export default function App() {
     const articleData = await articleResponse.json();
     const fetchedArticle = articleData.query.pages[pageId] as Article;
 
+    const validLinksHere = fetchedArticle.linkshere.filter((lh) => lh.ns === 0);
+
     if (
-      fetchedArticle.linkshere &&
-      fetchedArticle.linkshere.length >= minLinks &&
-      fetchedArticle.linkshere.length <= maxLinks
+      validLinksHere &&
+      validLinksHere.length >= minLinks &&
+      validLinksHere.length <= maxLinks
     ) {
       setArticle(fetchedArticle);
     } else {
