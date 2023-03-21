@@ -19,6 +19,7 @@ body {
   padding: 2rem;
   color: white;
   width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -30,6 +31,7 @@ button {
   cursor: pointer;
   margin-top: 1rem;
   transition: background-color 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
